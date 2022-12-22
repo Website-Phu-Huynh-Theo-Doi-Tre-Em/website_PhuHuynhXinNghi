@@ -59,7 +59,7 @@ public partial class web_module_module_website_website_VietNhatKis_web_XinNghi :
                            join hstl in db.tbHocSinhTrongLops on hs.hocsinh_id equals hstl.hocsinh_id
                            join xn in db.tbPhuHuynhXinNghis on hstl.hstl_id equals xn.hstl_id
                            where hs.hocsinh_id == id_HocSinh
-                           && hstl.namhoc_id == _idNamHoc && hstl.hstl_tinhtrang == false
+                           && hstl.namhoc_id == _idNamHoc && hstl.hstl_tinhtrang == null
                            && xn.phuhuynhxinnghi_xacnhan == true
                            orderby xn.phuhuynhxinnghi_id descending
                            select new

@@ -248,7 +248,7 @@
             </div>
 
             <div class="item">
-                <a onclick="funcActive(this.id),onLoad()" id="DanhGiaGiaoVien_14" class="block-btn" href="/website-vietnhatkids-danh-gia-giao-vien">
+                <a onclick="funcActive(this.id),onLoad()" id="DanhGiaGiaoVien_14" class="block-btn" href="/website-chuc-nang-dang-duoc-cap-nhat">
                     <img src="/image/icon/danh-gia-giao-vien.png" />
                     <span>ĐÁNH GIÁ
                         <br />

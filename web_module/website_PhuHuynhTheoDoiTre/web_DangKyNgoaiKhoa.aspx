@@ -283,7 +283,7 @@
                         document.getElementById("<%=txtngoaiKhoa_id.ClientID%>").value = id;
                         var xoa = document.getElementById('<%=btnXoa.ClientID%>');
 
-                  xoa.click();
+                        xoa.click();
                     }
                 });
         }
@@ -293,7 +293,6 @@
             document.getElementById("<%=btnXem.ClientID%>").click();
         }
         function checkbutton(id) {
-            alert("dfghjk");
             if (document.getElementById("<%=txtngoaiKhoa_tinhtrang.ClientID%>").value == "dang ki") {
 
                 document.getElementById("btnLuu_" + id).style.display = 'none';
@@ -325,10 +324,10 @@
                                     </div>
                                     <p class="left-sec" style="font-size: 14px"><%#Eval("ngoaikhoa_mota")%></p>
                                     <div class="btn-left" style="padding: 0 1%;">
-                                        <div class="btn-left" style="padding: 0 1%;">
+                                        <div class="btn-left" style="padding: 0 1%; display: flex; padding: 0 1%; /* width: 97%; */
+    flex-direction: row; align-items: center; justify-content: space-between;">
                                             <a id="btnLuu_<%#Eval("ngoaikhoa_id")%>" href="javascript:void(0)" class="btn-dangki" onclick="confirmDel(<%#Eval("ngoaikhoa_id") %>)">Đăng ký</a>
                                             <a id="btnHuy_<%#Eval("ngoaikhoa_id")%>" href="javascript:void(0)" class="btn-canceldangki" onclick="confirmHuyDangKi(<%#Eval("ngoaikhoa_id") %>)">Hủy đăng ký</a>
-
                                             <a onclick="funcgetID(<%#Eval("ngoaikhoa_id") %>)" class="btn_detail">Xem chi tiết</a>
                                         </div>
                                     </div>

@@ -58,6 +58,7 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
                               dn.ngoaikhoa_trangthai
 
                           };
+           
             if (!IsPostBack)
             {
                 rpDaNgoai.DataSource = getlist;
@@ -77,11 +78,29 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
                 rpDaNgoaiChiTiet.DataBind();
                 //insert.ngoaikhoa_id = id;
             }
-            if (db.tbDangKyNgoaiKhoas.Any(x => x.hstl_id == getHocSinh.hstl_id
-                                                   && x.namhoc_id == checkNamHoc.namhoc_id
-                                                   && x.ngoaikhoa_id == Convert.ToInt32(txtngoaiKhoa_id.Value)
-                                                   && x.dangkyngoaikhoa_tinhtrang == "dang ki"))
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", " checkbutton("+ getlist.FirstOrDefault().ngoaikhoa_id + ") ", true);
+            // ddueetj hết tất cả bản ghi trong bảng dangkyngoaikhoa xuất ra các ngoại khóa đã đăng ký
+            var getDangKy = from dk in db.tbDangKyNgoaiKhoas
+                            join nk in db.tbNgoaiKhoas on dk.ngoaikhoa_id equals nk.ngoaikhoa_id
+                            where dk.hstl_id == getHocSinh.hstl_id
+                            && dk.namhoc_id == checkNamHoc.namhoc_id
+                            && dk.dangkyngoaikhoa_tinhtrang == "dang ki"
+                            select new
+                            {
+                                dk.dangkyngoaikhoa_id,
+                                dk.ngoaikhoa_id,
+                               
+                                dk.dangkyngoaikhoa_tinhtrang,
+                                
+                            };
+            //những ngoại khóa có grong đăng kí thì dùng foreach để lấy ra và gọi hàm truyền id ngoại khóa đó 
+            foreach (var item in getDangKy)
+            {
+                txtngoaiKhoa_tinhtrang.Value = item.dangkyngoaikhoa_tinhtrang;
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "checkbutton(" + item.ngoaikhoa_id + ")", true);
+            }
+
+
+
 
 
         }
@@ -132,6 +151,7 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
             insert.lop_id = getHocSinh.lop_id;
             insert.namhoc_id = getHocSinh.namhoc_id;
             insert.hocsinh_id = getHocSinh.hocsinh_id;
+            insert.dangkyngoaikhoa_datecreate = DateTime.Now;
             insert.namhoc_id = checkNamHoc.namhoc_id;
             insert.ngoaikhoa_id = Convert.ToInt32(txtngoaiKhoa_id.Value);
             insert.dangkyngoaikhoa_tinhtrang = "dang ki";

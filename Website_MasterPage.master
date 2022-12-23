@@ -796,14 +796,14 @@
                 <li><a href="/website-trang-chu">Trang chủ</a></li>
                 <li><a href="#">Giới thiệu</a>
                     <ul class="ul_sub">
-                        <li><a href="/mam-non-doi-ngu-giao-vien">Đội ngũ giáo viên</a></li>
-                        <li><a href="/mam-non-co-cau-to-chuc">Cơ cấu tổ chức</a></li>
-                        <li><a href="/mam-non-doi-tac-chien-luoc">Đối tác chiến lược</a></li>
-                        <li><a href="/mam-non-thanh-tuu-viet-nhat">Thành tựu </a></li>
-                        <li><a href="/mam-non-co-so-vat-chat">Cơ sở vật chất</a></li>
-                        <li><a href="/mam-non-gioi-thieu-chung">Giới thiệu chung</a></li>
-                        <li><a href="/mam-non-tam-nhin-su-menh">Tầm nhìn & sứ mệnh</a></li>
-                        <li><a href="/mam-non-thu-ngo">Thư ngỏ</a></li>
+                        <li><a href="/website-chuc-nang-dang-duoc-cap-nhat">Đội ngũ giáo viên</a></li>
+                        <li><a href="/website-chuc-nang-dang-duoc-cap-nhat">Cơ cấu tổ chức</a></li>
+                        <li><a href="/website-chuc-nang-dang-duoc-cap-nhat">Đối tác chiến lược</a></li>
+                        <li><a href="/website-chuc-nang-dang-duoc-cap-nhat">Thành tựu </a></li>
+                        <li><a href="/website-chuc-nang-dang-duoc-cap-nhat">Cơ sở vật chất</a></li>
+                        <li><a href="/website-chuc-nang-dang-duoc-cap-nhat">Giới thiệu chung</a></li>
+                        <li><a href="/website-chuc-nang-dang-duoc-cap-nhat">Tầm nhìn & sứ mệnh</a></li>
+                        <li><a href="/website-chuc-nang-dang-duoc-cap-nhat">Thư ngỏ</a></li>
                         <%--<asp:Repeater ID="rpGioiThieu" runat="server">
                             <ItemTemplate>
                                 <li><a href="#" id="myMenu" runat="server"><%#Eval("websitesubmenu_title") %> </a></li>

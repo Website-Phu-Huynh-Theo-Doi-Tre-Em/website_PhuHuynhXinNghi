@@ -28,8 +28,8 @@
             padding-right: 5px;
         }
 
-        .logdropdown:hover dropdown-menu {
-            display: block;
+        .logdropdown:hover dropdown-menu{
+            display:block;
         }
 
         .notification {
@@ -65,18 +65,17 @@
             font-size: 16px;
         }
 
-        .profile:hover .dropdown-menu {
-            display: block;
+        .profile:hover .dropdown-menu{
+            display:block;
         }
 
-        .profile {
+        .profile{
             padding: 14% 0;
         }
 
-        .ddm {
-            top: 75%;
+        .ddm{
+            top:75%;
         }
-
         .
     </style>
     <form id="form1" runat="server">
@@ -96,17 +95,17 @@
                             </button>
                         </div>
                         <div style="width: 100%; width: 100%; display: flex; justify-content: flex-end;">
-                            <a class="notification" href="/website_PhuHuynhTheoDoiTre/admin_page/module_PhuHuynhXinNghi.aspx" title="Xin nghỉ từ phụ huynh">
+                            <a class="notification" href="/admin-phu-huynh-xin-nghi" title="Xin nghỉ từ phụ huynh">
                                 <i class="fa fa-calendar" aria-hidden="true">
                                     <span runat="server"><%=thongbaoNghi%></span>
                                 </i>
                             </a>
-                            <a class="notification col-md-3 col-sm-3 col-xs-4" href="/website_PhuHuynhTheoDoiTre/admin_page/module_DanDoThuocTuPhuHuynh.aspx" title="Dặn thuốc từ phụ huynh">
+                            <a class="notification col-md-3 col-sm-3 col-xs-4" href="/admin-dan-do-thuoc-tu-phu-huynh" title="Dặn thuốc từ phụ huynh">
                                 <i class="fa fa-medkit" aria-hidden="true">
                                     <span runat="server"><%=thongbaoThuoc%></span>
                                 </i>
                             </a>
-                            <a class="notification col-md-3 col-sm-3 col-xs-4" href="/website_PhuHuynhTheoDoiTre/admin_page/module_DanhSachDangKyNgoaiKhoa.aspx" title="Đăng ký ngoại khóa">
+                            <a class="notification col-md-3 col-sm-3 col-xs-4" href="/admin-danh-sach-dang-ky-chuong-trinh-ngoai-khoa" title="Đăng ký ngoại khóa">
                                 <i class="fa fa-graduation-cap" aria-hidden="true">
                                     <span runat="server"><%=thongbaoNgoaiKhoa%></span>
                                 </i>
@@ -156,26 +155,18 @@
                                         </ItemTemplate>
                                     </asp:Repeater>--%>
                                     <li>
-                                        <a href="/website_PhuHuynhTheoDoiTre/admin_page/module_ThongBao.aspx" class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Thông Báo<i class="fa arrow"></i></a>
+                                        <a href="#" class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Thông Báo<i class="fa arrow"></i></a>
                                     </li>
                                     <li>
-                                        <a class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Quản lý ngoại khoá<i class="fa arrow"></i></a>
-                                        <ul>
-                                            <li><a href="/website_PhuHuynhTheoDoiTre/admin_page/module_ThemNgoaiKhoa.aspx">Thêm Ngoại Khoá
-                                            </a>
-                                            </li>
-                                            <li><a href="/website_PhuHuynhTheoDoiTre/admin_page/module_DanhSachDangKyNgoaiKhoa.aspx">Danh Sách Đăng Ký Ngoại Khoá
-                                            </a>
-                                            </li>
-                                        </ul>
+                                        <a href="/website_PhuHuynhTheoDoiTre/admin_page/module_ThemNgoaiKhoa.aspx" class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Quản lý ngoại khoá<i class="fa arrow"></i></a>
                                     </li>
                                     <li>
                                         <a href="/website_PhuHuynhTheoDoiTre/admin_page/module_XacNhanHocSinhDangKyAnSang.aspx" class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Quản lý ăn sáng<i class="fa arrow"></i></a>
-
+                                        
                                     </li>
                                     <li>
                                         <a href="/website_PhuHuynhTheoDoiTre/admin_page/module_DanDoThuocTuPhuHuynh.aspx" class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Quản lý dặn thuốc<i class="fa arrow"></i></a>
-
+                                        
                                     </li>
                                     <li>
                                         <a class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Quản lý sức khoẻ<i class="fa arrow"></i></a>
@@ -185,7 +176,8 @@
                                         </ul>
                                     </li>
                                     <li>
-                                        <a href="/website_PhuHuynhTheoDoiTre/admin_page/module_PhuHuynhXinNghi.aspx" class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Quản lý xin nghĩ<i class="fa arrow"></i></a>
+                                        <a href="/website_PhuHuynhTheoDoiTre/admin_page/module_PhuHuynhXinNghi.aspx" class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Quản lý xin nghỉ<i class="fa arrow"></i></a>
+                                        
                                     </li>
                                 </ul>
                             </nav>

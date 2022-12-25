@@ -98,7 +98,6 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_DanDoThuocTuPh
                             orderby hstl.hstl_id descending
                             select hs).FirstOrDefault();
 
-            //db.tbVietNhatKids_ThongBaoPhuHuynhs.InsertOnSubmit(tb);
             db.SubmitChanges();
             string message = "Thông tin dặn thuốc của phụ huynh bé " + getEmail.hocsinh_name + " đã được giáo viên chủ nhiệm xác nhận!";
             SendMail(getEmail.hocsinh_emaillba + "," + getEmail.hocsinh_emaillba, message);
@@ -113,7 +112,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_DanDoThuocTuPh
         {
             try
             {
-                var fromAddress = "thongbaovietnhatschool@gmail.com";//  Email Address from where you send the mail 
+                var fromAddress = "huynhquoctoan1642002@gmail.com";//  Email Address from where you send the mail 
                 var toAddress = email;
                 const string fromPassword = "neiabcekdjluofid";
                 string subject, title;
@@ -131,7 +130,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_DanDoThuocTuPh
                     smtp.Timeout = 20000;
                 }
                 MailMessage mm = new MailMessage();
-                mm.From = new MailAddress(fromAddress, "Trường Mầm non Việt Nhật");
+                mm.From = new MailAddress(fromAddress, "Trường Mầm non UED");
                 mm.Subject = title;
                 mm.To.Add(toAddress);
                 mm.IsBodyHtml = true;

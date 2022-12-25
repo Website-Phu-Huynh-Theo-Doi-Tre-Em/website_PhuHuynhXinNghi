@@ -31,7 +31,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_Profile : System.Web.UI.Pa
                 }
                 else
                 {
-                    img_src = "https://quantri.vietnhatschool.edu.vn/admin_images/avatar-truong.png";
+                    
                 }
             }
         }

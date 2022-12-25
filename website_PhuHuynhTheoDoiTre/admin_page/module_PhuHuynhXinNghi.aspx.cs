@@ -104,7 +104,6 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_PhuHuynhXinNgh
         {
             update.phuhuynhxinnghi_xacnhan = true;
             update.username_id = _idUser;
-            //tbVietNhatKids_XacNhanNghi insert = new tbVietNhatKids_XacNhanNghi();
 
             var getData = (from phxn in db.tbPhuHuynhXinNghis
                            where phxn.phuhuynhxinnghi_id == _id
@@ -116,11 +115,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_PhuHuynhXinNgh
             TimeSpan soNgayNghi = ngayKetThuc - ngayBatDau;
             //for (int i = 0; i <= soNgayNghi.Days; i++)
             //{
-            //    tbVietNhatKids_XacNhanNghi insert = new tbVietNhatKids_XacNhanNghi();
-            //    insert.hstl_id = getData.hstl_id;
-            //    insert.phuhuynhxinnghi_datestart = ngayBatDau.AddDays(i);
-            //    insert.phuhuynhxinnghi_id = _id;
-            //    db.tbVietNhatKids_XacNhanNghis.InsertOnSubmit(insert);
+           
             //}
             //lưu thông báo cho phụ huynh
             var getEmail = (from hs in db.tbHocSinhs
@@ -132,8 +127,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_PhuHuynhXinNgh
             //gửi mail về cho ph
             db.SubmitChanges();
             alert.alert_Success(Page, "Đã gửi mail thông báo xác nhận về phụ huynh", "");
-            string message = "Thông báo xin nghỉ học của phụ huynh bé " + getEmail.hocsinh_name + " đã được giáo viên chủ nhiệm xác nhận. Xem chi tiết <a href='http://quantrimamnon.vietnhatschool.edu.vn/vietnhatkids-xin-nghi'>tại đây.</a>";
-            //SendMail(getEmail.hocsinh_email + ", ducpn@vjis.edu.vn, quyetlv@vjis.edu.vn", message);
+            string message = "Thông báo xin nghỉ học của phụ huynh bé " + getEmail.hocsinh_name + " đã được giáo viên chủ nhiệm xác nhận. Xem chi tiết tại đây.</a>";
             ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Detail", "grvList.Refresh();HiddenLoadingIcon()", true);
             // đẩy dữ liệu vào gridivew
         }
@@ -145,7 +139,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_PhuHuynhXinNgh
         {
             try
             {
-                var fromAddress = "thongbaovietnhatschool@gmail.com";//  Email Address from where you send the mail 
+                var fromAddress = "huynhquoctoan1642002@gmail.com";//  Email Address from where you send the mail 
                 var toAddress = email;
                 const string fromPassword = "neiabcekdjluofid";
                 string subject, title;
@@ -226,7 +220,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_PhuHuynhXinNgh
             alert.alert_Success(Page, "Cập nhật thành công!", "");
             loadData();
             popupControl.ShowOnPageLoad = false;
-            string message = "Giáo viên chủ nhiệm đã cập nhật lại ngày nghỉ của bé. Xem chi tiết <a href='http://quantrimamnon.vietnhatschool.edu.vn/vietnhatkids-xin-nghi'>tại đây.</a>";
+            string message = "Giáo viên chủ nhiệm đã cập nhật lại ngày nghỉ của bé. Xem chi tiết tại đây.</a>";
             //SendMail("ducpn@vjis.edu.vn", message);
 
             setNull();
@@ -286,8 +280,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_PhuHuynhXinNgh
                 alert.alert_Success(Page, "Cập nhật thành công!", "");
                 loadData();
                 popupControl.ShowOnPageLoad = false;
-                string message = "Giáo viên chủ nhiệm đã cập nhật lại ngày nghỉ của bé. Xem chi tiết <a href='http://quantrimamnon.vietnhatschool.edu.vn/vietnhatkids-xin-nghi'>tại đây.</a>";
-                //SendMail("ducpn@vjis.edu.vn, quyetlv@vjis.edu.vn", message);
+                string message = "Giáo viên chủ nhiệm đã cập nhật lại ngày nghỉ của bé. Xem chi tiết tại đây.</a>";
             }
             setNull();
         }

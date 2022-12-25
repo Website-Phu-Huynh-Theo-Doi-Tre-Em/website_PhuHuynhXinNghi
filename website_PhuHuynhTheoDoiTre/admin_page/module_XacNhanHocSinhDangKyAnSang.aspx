@@ -59,7 +59,6 @@
                 <%--<asp:UpdatePanel ID="udButton" runat="server">
                     <ContentTemplate>--%>
                 <asp:Button ID="btnXacNhan" runat="server" OnClientClick="DisplayLoadingIcon()" OnClick="btnXacNhan_Click" Text="Xác nhận" CssClass="btn btn-primary" />
-                <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">File hướng dẫn</a>
                 <%-- </ContentTemplate>
                 </asp:UpdatePanel>--%>
             </div>

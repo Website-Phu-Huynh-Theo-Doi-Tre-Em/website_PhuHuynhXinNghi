@@ -175,6 +175,10 @@
                                             </li>
                                         </ul>
                                     </li>
+                                    <li>
+                                        <a href="/website_PhuHuynhTheoDoiTre/admin_page/module_PhuHuynhXinNghi.aspx" class="Danhmuc"><i class="fa-solid fa-table-cells-large"></i>Quản lý xin nghỉ<i class="fa arrow"></i></a>
+                                        
+                                    </li>
                                 </ul>
                             </nav>
                         </div>

@@ -91,8 +91,7 @@
             </div>
         </div>
         <div style="text-align:right">
-            <a href="#" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">File hướng dẫn</a>
-            <a href="/admin-home" class="btn btn-primary">Quay lại</a>
+            <a href="/Admin_Default.aspx" class="btn btn-primary">Quay lại</a>
         </div>
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">

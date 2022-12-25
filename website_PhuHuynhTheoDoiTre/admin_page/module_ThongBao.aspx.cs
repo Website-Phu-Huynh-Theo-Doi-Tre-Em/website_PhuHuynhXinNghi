@@ -106,7 +106,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_ThongBao : Sys
         {
             try
             {
-                var fromAddress = "thongbaovietnhatschool@gmail.com";//  Email Address from where you send the mail 
+                var fromAddress = "huynhquoctoan1642002@gmail.com";//  Email Address from where you send the mail 
                 var toAddress = email;
                 const string fromPassword = "neiabcekdjluofid";
                 string subject, title;
@@ -124,7 +124,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_ThongBao : Sys
                     smtp.Timeout = 20000;
                 }
                 MailMessage mm = new MailMessage();
-                mm.From = new MailAddress(fromAddress, "Trường Mầm non Việt Nhật");
+                mm.From = new MailAddress(fromAddress, "Trường Mầm non UED");
                 mm.Subject = title;
                 mm.To.Add(toAddress);
                 mm.IsBodyHtml = true;
@@ -238,7 +238,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_ThongBao : Sys
                             alert.alert_Success(Page, "Thêm thành công", "");
                             popupControl.ShowOnPageLoad = false;
                             loadData();
-                            string message = "Bạn có thông báo mới cần xác nhận. Xem chi tiết <a href='http://quantrimamnon.vietnhatschool.edu.vn/thong-bao-lop-duyet'>tại đây.</a>";
+                            string message = "Bạn có thông báo mới cần xác nhận.";
                             //SendMail(listEmail + ", quyetlv@vjis.edu.vn", message);
                         }
                         else alert.alert_Error(Page, "Thêm thất bại", "");

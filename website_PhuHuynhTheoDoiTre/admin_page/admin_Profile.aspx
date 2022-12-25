@@ -67,10 +67,10 @@
                 <div class="block-left">
                     <div class="col-12">
                         <div class="col-4 float-lg-left">
-                            <img src="<%=img_src %>" style="width: 190px; height: 210px; margin-top: 10px; margin-left: 20px;" />
-                            <input id="txtid" runat="server" type="text" style="width: 90%; margin-left: 20px;" class="form-control" />
+                            <%--<img src="<%=img_src %>" style="width: 190px; height: 210px; margin-top: 10px; margin-left: 20px;" />--%>
+                            <%--<input id="txtid" runat="server" type="text" style="width: 90%; margin-left: 20px;" class="form-control" />--%>
                         </div>
-                        <div class="col-8 float-lg-right">
+                        <div class="col-12 float-lg-right">
                             <div class="col-8 float-lg-left">
                                 <div class="khoi">
                                     <label class="form-check-label">Họ tên: </label>

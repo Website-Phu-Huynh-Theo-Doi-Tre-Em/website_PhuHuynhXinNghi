@@ -124,7 +124,6 @@
                 </div>
                 <div class="col-3">
                     <a href="#" id="btnXem" class="btn btn-primary" onclick="DisplayLoadingIcon()" runat="server" onserverclick="btnXem_ServerClick">Xem</a>
-                    <a href="#" data-toggle="modal" class="btn btn-primary" data-target="#exampleModalLong">File hướng dẫn</a>
                 </div>
             </div>
             <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

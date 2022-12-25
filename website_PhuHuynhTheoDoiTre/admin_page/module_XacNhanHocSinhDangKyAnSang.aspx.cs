@@ -68,7 +68,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_XacNhanHocSinh
         {
             try
             {
-                var fromAddress = "thongbaovietnhatschool@gmail.com";//  Email Address from where you send the mail 
+                var fromAddress = "huynhquoctoan1642002@gmail.com";//  Email Address from where you send the mail 
                 var toAddress = email;
                 const string fromPassword = "neiabcekdjluofid";
                 string subject, title;
@@ -86,7 +86,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_XacNhanHocSinh
                     smtp.Timeout = 20000;
                 }
                 MailMessage mm = new MailMessage();
-                mm.From = new MailAddress(fromAddress, "Trường Mầm non Việt Nhật");
+                mm.From = new MailAddress(fromAddress, "Trường Mầm non UED");
                 mm.Subject = title;
                 mm.To.Add(toAddress);
                 mm.IsBodyHtml = true;

@@ -16,7 +16,7 @@
             var mkxc = document.getElementById("<%= txtNhapLai.ClientID%>");
            
             if (mkcu.value.trim() == "" || mkmoi.value.trim() == "" || mkxc.value.trim() == "") {
-                alert(mkcu.value.trim());
+                //alert(mkcu.value.trim());
                 swal('Vui lòng nhập đầy đủ thông tin!', '', 'warning').then(function () { mkcu.focus(); });
                 return false;
             }
@@ -54,7 +54,7 @@
             <asp:UpdatePanel runat="server">
                 <ContentTemplate>
                     <div class="col-sm-10">
-                        <a href="#" runat="server" id="btnLuu" onclick="return checkNULL()" onserverclick="btnLuu_ServerClick">Xác nhận</a>
+                        <a class="btn btn-primary" href="#" runat="server" id="btnLuu" onclick="return checkNULL()" onserverclick="btnLuu_ServerClick">Xác nhận</a>
                         <%--<a href="#" ID="btnLuu" runat="server"  CssClass="btn btn-primary" OnClientClick="return checkNULL()" ons="btnLuu_Click" >Xác nhân</a>--%>
 
                     </div>

@@ -16,7 +16,7 @@ public class cls_ThongBao
         // TODO: Add constructor logic here
         //
     }
-    public bool Linq_Them(string news_title, string news_content, int idlop, int username_id, int namhoc_id)
+    public bool Linq_Them(string news_title, string news_content, int idlop, int username_id, int namhoc_id, int loaithongbao_ID)
     {
         tbThongBao insert = new tbThongBao();
         insert.thongbao_title = news_title;
@@ -28,6 +28,7 @@ public class cls_ThongBao
         insert.username_id = username_id;
         insert.namhoc_id = namhoc_id;
         insert.thongbao_tinhtrang = 0;//chưa được duyệt
+        insert.loaithongbao_ID = loaithongbao_ID;
         db.tbThongBaos.InsertOnSubmit(insert);
         try
         {
@@ -41,10 +42,7 @@ public class cls_ThongBao
     }
     public bool Linq_Sua(int news_id, string news_title, string news_content)
     {
-        // int newscate_id,
-        //var seodata = (from gr in db.tbWebsite_NewsCates
-        //               where gr.newscate_id == newscate_id
-        //               select gr).Single();
+       
         tbThongBao update = db.tbThongBaos.Where(x => x.thongbao_id == news_id).FirstOrDefault();
         update.thongbao_title = news_title;
         update.thongbao_content = news_content;

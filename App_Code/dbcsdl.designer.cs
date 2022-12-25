@@ -1586,6 +1586,8 @@ public partial class tbDangKyNgoaiKhoa : INotifyPropertyChanging, INotifyPropert
 	
 	private System.Nullable<int> _username_id;
 	
+	private System.Nullable<bool> _dangkyngoaikhoa_trangthai;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1608,6 +1610,8 @@ public partial class tbDangKyNgoaiKhoa : INotifyPropertyChanging, INotifyPropert
     partial void Ondangkyngoaikhoa_tinhtrangChanged();
     partial void Onusername_idChanging(System.Nullable<int> value);
     partial void Onusername_idChanged();
+    partial void Ondangkyngoaikhoa_trangthaiChanging(System.Nullable<bool> value);
+    partial void Ondangkyngoaikhoa_trangthaiChanged();
     #endregion
 	
 	public tbDangKyNgoaiKhoa()
@@ -1791,6 +1795,26 @@ public partial class tbDangKyNgoaiKhoa : INotifyPropertyChanging, INotifyPropert
 				this._username_id = value;
 				this.SendPropertyChanged("username_id");
 				this.Onusername_idChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_dangkyngoaikhoa_trangthai", DbType="Bit")]
+	public System.Nullable<bool> dangkyngoaikhoa_trangthai
+	{
+		get
+		{
+			return this._dangkyngoaikhoa_trangthai;
+		}
+		set
+		{
+			if ((this._dangkyngoaikhoa_trangthai != value))
+			{
+				this.Ondangkyngoaikhoa_trangthaiChanging(value);
+				this.SendPropertyChanging();
+				this._dangkyngoaikhoa_trangthai = value;
+				this.SendPropertyChanged("dangkyngoaikhoa_trangthai");
+				this.Ondangkyngoaikhoa_trangthaiChanged();
 			}
 		}
 	}

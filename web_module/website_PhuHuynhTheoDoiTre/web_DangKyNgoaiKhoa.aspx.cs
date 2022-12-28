@@ -159,8 +159,8 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
             db.SubmitChanges();
             int id = Convert.ToInt32(txtngoaiKhoa_id.Value);
            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "checkbutton(" + id +")", true);
-
-            alert.alert_Success(Page, "Đăng ký thành công! Vui lòng chờ xác nhận của nhà trường", "");
+            ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Đăng ký thành công! Vui lòng chờ xác nhận của nhà trường!','','success').then(function(){window.location.reload();})", true);
+            //alert.alert_Success(Page, "Đăng ký thành công! Vui lòng chờ xác nhận của nhà trường", "");
             String message = "Bạn có thông tin đăng ký ngoại khóa mới từ phụ huynh bé" + checkUserId.hocsinh_name + ".  Xem chi tiết <a href='http://quantrimamnon.vietnhatschool.edu.vn/admin-danh-sach-dang-ky-chuong-trinh-ngoai-khoa'>tại đây.</a>";
             SendMail(listMail + "dangbichlai21@gmail.com", message);
 
@@ -209,8 +209,9 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
     }
 
     protected void btnXem_ServerClick(object sender, EventArgs e)
-    {
 
+    {
+        
     }
 
     protected void xoa_ServerClick(object sender, EventArgs e)
@@ -220,8 +221,8 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
                                     select nk).FirstOrDefault();
         db.tbDangKyNgoaiKhoas.DeleteOnSubmit(delete);
         db.SubmitChanges();
-        alert.alert_Success(Page, "Hủy đăng ký thành công! Vui lòng chờ xác nhận của nhà trường", "");
 
+        ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Hủy đăng ký thành công! Vui lòng chờ xác nhận của nhà trường!','','success').then(function(){parent.location.href='/website-dang-ki-ngoai-khoa';})", true);
 
     }
 }

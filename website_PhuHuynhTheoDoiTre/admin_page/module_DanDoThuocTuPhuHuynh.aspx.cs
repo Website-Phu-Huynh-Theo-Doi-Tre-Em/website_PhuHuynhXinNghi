@@ -46,7 +46,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_DanDoThuocTuPh
         }
         else
         {
-            Response.Redirect("/admin-login");
+            Response.Redirect("/website_PhuHuynhTheoDoiTre/admin_page/admin_Login.aspx");
         }
     }
     private void loadData(int id_lop)

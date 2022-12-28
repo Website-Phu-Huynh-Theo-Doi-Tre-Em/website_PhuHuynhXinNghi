@@ -31,7 +31,7 @@
                 <div class="card">
                     <header class="auth-header">
                         <h1 class="auth-title text-center">
-                            QUẢN TRỊ VIỆT NHẬT
+                            QUẢN TRỊ ADMIN UED
                             <%--<img src="/admin_images/logo-hifive.png" title="Quản trị Hifiveplus" alt="Quản trị Hifiveplus" style="height: 40px; display: block; margin: auto;" />--%>
                         </h1>
                     </header>

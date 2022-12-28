@@ -4,10 +4,10 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Website-Phụ Huynh Theo dõi Trẻ</title>
     <style>
         body, html {
-             height: 137%;
+            height: 137%;
             background-image: url('/image_dong/image_processing20210415-5198-fhoztv.gif');
             display: flex;
             flex-direction: column;
@@ -21,7 +21,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="bao-tri">
-            <img src="../../../image_/BẢO%20TRÌ%20HỆ%20THỐNG%20Syllabus.png" />
+            <img style ="width: 68%; margin-left: 19%;margin-top: -7%;" src="/image_/BẢO%20TRÌ%20HỆ%20THỐNG%20Syllabus.png" />
         </div>
     </form>
 </body>

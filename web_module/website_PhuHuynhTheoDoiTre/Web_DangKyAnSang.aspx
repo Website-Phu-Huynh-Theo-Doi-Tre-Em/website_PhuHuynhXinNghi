@@ -1,5 +1,4 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Website_MasterPage.master" AutoEventWireup="true" CodeFile="Web_DangKyAnSang.aspx.cs" Inherits="web_module_website_VietNhatKids_Web_DangKyAnSang" %>
-
 <%@ Register Src="~/web_usercontrol/Web_ThongTinCaNhan.ascx" TagPrefix="uc1" TagName="Web_ThongTinCaNhan" %>
 <%@ Register Src="~/web_usercontrol/Web_ThanhChucnang.ascx" TagPrefix="uc1" TagName="Web_ThanhChucnang" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="head" runat="Server">

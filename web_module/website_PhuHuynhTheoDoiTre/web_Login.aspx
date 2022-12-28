@@ -200,7 +200,6 @@
     </style>
 </head>
 
-    // enter là gưi
     <script>
         function searchKeyPress(e) {
             e = e || window.event;

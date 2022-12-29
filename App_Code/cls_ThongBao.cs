@@ -27,7 +27,7 @@ public class cls_ThongBao
         insert.lop_id = idlop;
         insert.username_id = username_id;
         insert.namhoc_id = namhoc_id;
-        insert.thongbao_tinhtrang = 0;//chưa được duyệt
+        insert.thongbao_tinhtrang = 1;//chưa được duyệt
         insert.loaithongbao_ID = loaithongbao_ID;
         db.tbThongBaos.InsertOnSubmit(insert);
         try

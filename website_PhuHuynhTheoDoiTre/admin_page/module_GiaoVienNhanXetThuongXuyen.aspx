@@ -207,13 +207,13 @@
                 let socuoi = document.getElementById("<%=txtHocSinhCuoi.ClientID%>").value;
                 let str_danhsachID = document.getElementById("<%=txtDanhSachHocSinhID.ClientID%>").value;
                 let ds_hocsinh = str_danhsachID.split(';');
-                console.log(ds_hocsinh);
+                //console.log(ds_hocsinh);
                 var cannang = [];
                 var chieucao = [];
                 var ghichu = [];
                 for (let i = 0; i < ds_hocsinh.length; i++) {
-                    alert(document.getElementById("txtcannang" + ds_hocsinh[i]).value);
-                    alert(document.getElementById("txtchieucao" + ds_hocsinh[i]).value);
+                    //alert(document.getElementById("txtcannang" + ds_hocsinh[i]).value);
+                    //alert(document.getElementById("txtchieucao" + ds_hocsinh[i]).value);
 
                     var _cannang = (document.getElementById("txtcannang" + ds_hocsinh[i]).value);
                     var _chieucao = (document.getElementById("txtchieucao" + ds_hocsinh[i]).value);

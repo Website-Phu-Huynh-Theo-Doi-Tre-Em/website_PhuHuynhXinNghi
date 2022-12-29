@@ -80,17 +80,14 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
             }
             // ddueetj hết tất cả bản ghi trong bảng dangkyngoaikhoa xuất ra các ngoại khóa đã đăng ký
             var getDangKy = from dk in db.tbDangKyNgoaiKhoas
-                            join nk in db.tbNgoaiKhoas on dk.ngoaikhoa_id equals nk.ngoaikhoa_id
-                            where dk.hstl_id == getHocSinh.hstl_id
-                            && dk.namhoc_id == checkNamHoc.namhoc_id
-                            && dk.dangkyngoaikhoa_tinhtrang == "dang ki"
+                            join hstl in db.tbHocSinhTrongLops on dk.hstl_id equals hstl.hstl_id
+                            join hs in db.tbHocSinhs on hstl.hocsinh_id equals hs.hocsinh_id
+                            where hs.hocsinh_id  == checkUserId.hocsinh_id
                             select new
                             {
                                 dk.dangkyngoaikhoa_id,
                                 dk.ngoaikhoa_id,
-                               
                                 dk.dangkyngoaikhoa_tinhtrang,
-                                
                             };
             //những ngoại khóa có grong đăng kí thì dùng foreach để lấy ra và gọi hàm truyền id ngoại khóa đó 
             foreach (var item in getDangKy)

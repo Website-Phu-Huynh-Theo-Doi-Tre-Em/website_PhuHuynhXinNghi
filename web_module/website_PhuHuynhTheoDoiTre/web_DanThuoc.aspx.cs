@@ -11,7 +11,8 @@ public partial class web_module_module_website_website_VietNhatKis_web_DanThuoc 
     public int stt = 1;
     cls_Alert alert = new cls_Alert();
     string sdt = "";
-    int id_HocSinh = 0;
+    int id_HocSinh ;
+    int _idNamHoc;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.Cookies["web_hocsinh"] != null)
@@ -60,7 +61,25 @@ public partial class web_module_module_website_website_VietNhatKis_web_DanThuoc 
         if (Request.Cookies["web_hocsinh"] != null)
         {
             if (txtDanDo.Value !="" && dteTuNgay.Value !="" && dteDenNgay.Value != "" && txtBenh.Value != "")
-            {
+            { 
+                var getNam = (from nh in dbcsdlDataContext.tbHoctap_NamHocs
+                              orderby nh.namhoc_id descending
+                              select nh).First();
+                _idNamHoc = getNam.namhoc_id;
+                var checkuserid = (from u in dbcsdlDataContext.tbHocSinhs
+                                   join htst in dbcsdlDataContext.tbHocSinhTrongLops on u.hocsinh_id equals htst.hocsinh_id
+                                   where u.hocsinh_taikhoan == Request.Cookies["web_hocsinh"].Value
+                                   && u.hocsinh_tinhtrang == null && htst.namhoc_id == _idNamHoc
+                                   orderby u.hocsinh_id descending
+                                   select new
+                                   {
+                                       htst.hocsinh_id,
+                                       htst.hstl_id,
+                                       htst.lop_id
+                                   }).First();
+                
+              
+               
 
                 var getData = (from hs in dbcsdlDataContext.tbHocSinhs
                               join hstl in dbcsdlDataContext.tbHocSinhTrongLops on hs.hocsinh_id equals hstl.hocsinh_id
@@ -78,17 +97,16 @@ public partial class web_module_module_website_website_VietNhatKis_web_DanThuoc 
                                   danthuoc_content = dt.phuhuynhdandothuoc_noidungdando,
                                   dt.hstl_id,
                                   dt.lop_id,
-                                  dt.namhoc_id,
-
+                                  dt.namhoc_id
                                }).FirstOrDefault();
                 tbDanDoThuoc insert = new tbDanDoThuoc();
                 insert.phuhuynhdandothuoc_noidungdando = txtDanDo.Value;
                 insert.phuhuynhdandothuoc_ngaybatdau = Convert.ToDateTime(dteTuNgay.Value);
                 insert.phuhuynhdandothuoc_ngayketthuc = Convert.ToDateTime(dteDenNgay.Value);
                 insert.phuhuynhdandothuoc_Lydo = txtBenh.Value;
-                insert.hstl_id = getData.hstl_id;
-                insert.lop_id = getData.lop_id;
-                insert.namhoc_id=getData.namhoc_id;
+                insert.hstl_id = checkuserid.hstl_id;
+                insert.lop_id = checkuserid.lop_id;
+                insert.namhoc_id= _idNamHoc;
                 insert.phuhuynhdandothuoc_ngaydangki = Convert.ToDateTime(DateTime.Now);
                 insert.phuhuynhdandothuoc_tinhtrang =false;
                 dbcsdlDataContext.tbDanDoThuocs.InsertOnSubmit(insert);

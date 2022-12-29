@@ -219,7 +219,7 @@
                             <div class="col-auto" style="display: flex; flex-direction: row-reverse; padding-right: 0">
                                 <asp:UpdatePanel runat="server">
                                     <ContentTemplate>
-                                        <a href="#" style="display: block; background: #a10101;" class="btn btn-lg btn-success" id="btnGui" runat="server" text="Gửi" onserverclick="btnGui_Click">Gửi</a>
+                                        <a href="#" style="display: block; background: #a10101;" class="btn btn-lg btn-success" id="btnGui" runat="server" text="Gửi"  onclick="DisplayLoadingIcon()"   onserverclick="btnGui_Click">Gửi</a>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
                             </div>
@@ -337,6 +337,9 @@
     <script>
         function DisplayLoadingIcon() {
             $("#img-loading-icon").show();
+        }
+        function HiddenLoadingIcon() {
+            $("#img-loading-icon").hidden();
         }
         function myCapNhat(id) {
             DisplayLoadingIcon();

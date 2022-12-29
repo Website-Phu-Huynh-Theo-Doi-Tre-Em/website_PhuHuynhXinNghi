@@ -37,7 +37,7 @@ public partial class web_ThongTinSucKhoe : System.Web.UI.Page
                           join lt in db.tbThangs on Convert.ToInt32( sk.suckhoe_thang) equals lt.thang_id
                           join nh in db.tbHoctap_NamHocs on sk.namhoc_id equals nh.namhoc_id
                           where hs.hocsinh_taikhoan == _sdtHocSinh && nh.namhoc_id == getNam.namhoc_id
-                          orderby sk.suckhoe_id ascending
+                          //orderby sk.suckhoe_thang ascending
                           select new
                           {
                               sk.suckhoe_chieucao,

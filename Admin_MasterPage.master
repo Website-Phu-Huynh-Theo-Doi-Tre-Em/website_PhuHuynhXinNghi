@@ -136,7 +136,7 @@
                         <div class="sidebar-container">
                             <div class="sidebar-header">
                                 <div class="brand">
-                                    <a href="/Admin_Default.aspx"><i class="fa fa-home" aria-hidden="true" style="font-size: 25px; color: #52BCD3;"></i>Quản trị ued</a>
+                                    <a href="/website_PhuHuynhTheoDoiTre/admin_page/module_PhuHuynhXinNghi.aspx"><i class="fa fa-home" aria-hidden="true" style="font-size: 25px; color: #52BCD3;"></i>Quản trị ued</a>
                                 </div>
                             </div>
                             <nav class="menu">

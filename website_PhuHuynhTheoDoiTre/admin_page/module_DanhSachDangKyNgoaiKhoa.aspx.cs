@@ -48,7 +48,7 @@ public partial class website_PhuHuynhTheoDoiTre_admin_page_module_DanhSachDangKy
         }
         else
         {
-            Response.Redirect("/Admin_Default.aspx");
+            Response.Redirect("/website_PhuHuynhTheoDoiTre/admin_page/admin_Login.aspx");
         }
     }
 

@@ -11,7 +11,8 @@
     <link rel="stylesheet" href="/admin_css/vendor.css" />
     <link href="/admin_css/app.css" rel="stylesheet" />
     <script src="/admin_js/sweetalert.min.js"></script>
-    <link rel="icon" type="image/x-icon" href="../../admin_images/logo_mamnon.png" />
+    <link rel="icon" type="image/x-icon" href="../../image_/Logo.png" />
+
     <style type="text/css">
         body {
             background-size: cover;

@@ -321,7 +321,7 @@
                             <div class="col-auto" style="display: flex; flex-direction: row-reverse; padding-right: 0; margin-top: 5%;">
                                 <asp:UpdatePanel runat="server">
                                     <ContentTemplate>
-                                        <a href="#" id="btnGui" onclick="return checkNULL()" runat="server" onserverclick="btnGui_Click" style="display: block; background: #a10101; line-height: 1; border: none" class="btn  btn-success ">Xin phép nghỉ</a>
+                                        <a href="#" id="btnGui" onclick="return checkNULL(); " runat="server" onserverclick="btnGui_Click" style="display: block; background: #a10101; line-height: 1; border: none" class="btn  btn-success ">Xin phép nghỉ</a>
                                     </ContentTemplate>
                                 </asp:UpdatePanel>
                             </div>
@@ -440,6 +440,7 @@
             }
             DisplayLoadingIcon();
             return true;
+
         }
 
     </script>
@@ -464,6 +465,9 @@
     <script>
         function DisplayLoadingIcon() {
             $("#img-loading-icon").show();
+        }
+        function HidenLoadingIcon() {
+            $("#img-loading-icon").hide();
         }
     </script>
     <script>

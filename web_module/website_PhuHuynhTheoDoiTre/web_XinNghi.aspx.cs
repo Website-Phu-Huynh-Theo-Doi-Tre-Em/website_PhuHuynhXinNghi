@@ -91,8 +91,29 @@ public partial class web_module_module_website_website_VietNhatKis_web_XinNghi :
     protected void btnGui_Click(object sender, EventArgs e)
     {
 
+
         if (Request.Cookies["web_hocsinh"] != null)
         {
+            var checkNamHoc = (from nh in db.tbHoctap_NamHocs orderby nh.namhoc_id descending select nh).First();
+            var checkUserId = (from hs in db.tbHocSinhs
+                               where hs.hocsinh_taikhoan == Request.Cookies["web_hocsinh"].Value
+                               select hs).First();
+
+
+            var getHocSinh = (from hs in db.tbHocSinhs
+                              join hstl in db.tbHocSinhTrongLops on hs.hocsinh_id equals hstl.hocsinh_id
+                              join l in db.tbLops on hstl.lop_id equals l.lop_id
+                              where hstl.hocsinh_id == checkUserId.hocsinh_id &&
+                              hstl.namhoc_id == checkNamHoc.namhoc_id
+                              orderby hstl.hocsinh_id descending
+                              select new
+                              {
+                                  hstl.hstl_id,
+                                  hs.hocsinh_name,
+                                  hs.hocsinh_id,
+                                  l.lop_id,
+                                  hstl.namhoc_id,
+                              }).FirstOrDefault();
             db.Connection.Open();
             using (var transaction = db.Connection.BeginTransaction())
             {
@@ -101,29 +122,29 @@ public partial class web_module_module_website_website_VietNhatKis_web_XinNghi :
                 {
                     //if (dteDenNgay.Value != "" && dteTuNgay.Value != "" && txtDanDo.Value != "")
                     //{
-                    var getData = (from hs in db.tbHocSinhs
-                                   join hstl in db.tbHocSinhTrongLops on hs.hocsinh_id equals hstl.hocsinh_id //thong qua hstl để join phxn
-                                   join phxn in db.tbPhuHuynhXinNghis on hstl.hstl_id equals phxn.hstl_id
-                                   join nh in db.tbHoctap_NamHocs on phxn.namhoc_id equals nh.namhoc_id
-                                   where hs.hocsinh_taikhoan == _sdtHocSinh && nh.namhoc_id == _idNamHoc && hstl.hstl_tinhtrang == null
-                                   select new
-                                   {
-                                       hstl.hocsinh_id,
-                                       hstl.lop_id,
-                                       hstl.namhoc_id,
-                                       nh.namhoc_hocky,
-                                       phxn.hstl_id,
-                                       hs.hocsinh_name
-                                   }).FirstOrDefault();
+                    //var getData = (from hs in db.tbHocSinhs
+                    //               join hstl in db.tbHocSinhTrongLops on hs.hocsinh_id equals hstl.hocsinh_id //thong qua hstl để join phxn
+                    //               join phxn in db.tbPhuHuynhXinNghis on hstl.hstl_id equals phxn.hstl_id
+                    //               join nh in db.tbHoctap_NamHocs on phxn.namhoc_id equals nh.namhoc_id
+                    //               where hs.hocsinh_taikhoan == _sdtHocSinh && nh.namhoc_id == _idNamHoc && hstl.hstl_tinhtrang == null
+                    //               select new
+                    //               {
+                    //                   hstl.hocsinh_id,
+                    //                   hstl.lop_id,
+                    //                   hstl.namhoc_id,
+                    //                   nh.namhoc_hocky,
+                    //                   phxn.hstl_id,
+                    //                   hs.hocsinh_name
+                    //               }).FirstOrDefault();
 
                     tbPhuHuynhXinNghi insert = new tbPhuHuynhXinNghi();
                     insert.phuhuynhxinnghi_ngaydangki = Convert.ToDateTime(DateTime.Now);
                     insert.phuhuynhxinnghi_ngaybatdau = Convert.ToDateTime(dteTuNgay.Value);
                     insert.phuhuynhxinnghi_ngayketthuc = Convert.ToDateTime(dteDenNgay.Value);
                     insert.phuhuynhxinnghi_lydo = txtDanDo.Value;
-                    insert.hstl_id = getData.hstl_id;
-                    insert.lop_id = getData.lop_id;
-                    insert.namhoc_id = getData.namhoc_id;
+                    insert.hstl_id = getHocSinh.hstl_id;
+                    insert.lop_id = getHocSinh.lop_id;
+                    insert.namhoc_id = getHocSinh.namhoc_id;
                     insert.phuhuynhxinnghi_xacnhan = false;
                     db.tbPhuHuynhXinNghis.InsertOnSubmit(insert);
                     try
@@ -131,15 +152,14 @@ public partial class web_module_module_website_website_VietNhatKis_web_XinNghi :
                         db.SubmitChanges();
                         setNull();
                         // alert.alert_Success(Page, "Gửi đơn thành công", "");
-                        ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Gửi đơn xin phép thành công!','','success').then(function(){window.location.reload();})", true);
-                        var checkNamHoc = (from nh in db.tbHoctap_NamHocs orderby nh.namhoc_id descending select nh).First();
+                        ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Gửi đơn xin phép thành công!','','success').then(function(){window.location.reload();HidenLoadingIcon()})", true);
                         var getEmail = from u in db.admin_Users
                                        join gvtl in db.tbGiaoVienTrongLops on u.username_id equals gvtl.taikhoan_id
                                        join l in db.tbLops on gvtl.lop_id equals l.lop_id
-                                       where gvtl.lop_id == getData.lop_id && gvtl.namhoc_id == checkNamHoc.namhoc_id
+                                       where gvtl.lop_id == getHocSinh.lop_id && gvtl.namhoc_id == checkNamHoc.namhoc_id
                                        select u;
                         string listEmail = string.Join(",", getEmail.Select(x => x.username_email).ToArray());
-                        string message = "Bạn có thông báo mới xin nghỉ từ phụ huynh bé " + getData.hocsinh_name + ". Xem chi tiết <a href='http://quantrimamnon.vietnhatschool.edu.vn/admin-phu-huynh-xin-nghi'>tại đây.</a>";
+                        string message = "Bạn có thông báo mới xin nghỉ từ phụ huynh bé " + getHocSinh.hocsinh_name + ". Xem chi tiết <a href='http://quantrimamnon.vietnhatschool.edu.vn/admin-phu-huynh-xin-nghi'>tại đây.</a>";
                         SendMail("dangbichlai21@gmail.com", message);
                         transaction.Commit();
                     }

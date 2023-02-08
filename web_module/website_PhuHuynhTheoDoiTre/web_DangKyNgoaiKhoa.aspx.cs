@@ -58,14 +58,14 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
                               dn.ngoaikhoa_trangthai
 
                           };
-           
+
             if (!IsPostBack)
             {
                 rpDaNgoai.DataSource = getlist;
                 rpDaNgoai.DataBind();
                 rpDaNgoaiChiTiet.DataSource = getlist.Take(1);
                 rpDaNgoaiChiTiet.DataBind();
-               
+
 
             }
             if (txtngoaiKhoa_id.Value != "")
@@ -78,25 +78,6 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
                 rpDaNgoaiChiTiet.DataBind();
                 //insert.ngoaikhoa_id = id;
             }
-            // ddueetj hết tất cả bản ghi trong bảng dangkyngoaikhoa xuất ra các ngoại khóa đã đăng ký
-            var getDangKy = from dk in db.tbDangKyNgoaiKhoas
-                            join hstl in db.tbHocSinhTrongLops on dk.hstl_id equals hstl.hstl_id
-                            join hs in db.tbHocSinhs on hstl.hocsinh_id equals hs.hocsinh_id
-                            where hs.hocsinh_id  == checkUserId.hocsinh_id
-                            select new
-                            {
-                                dk.dangkyngoaikhoa_id,
-                                dk.ngoaikhoa_id,
-                                dk.dangkyngoaikhoa_tinhtrang,
-                            };
-            //những ngoại khóa có grong đăng kí thì dùng foreach để lấy ra và gọi hàm truyền id ngoại khóa đó 
-            foreach (var item in getDangKy)
-            {
-                txtngoaiKhoa_tinhtrang.Value = item.dangkyngoaikhoa_tinhtrang;
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "checkbutton(" + item.ngoaikhoa_id + ")", true);
-            }
-
-
 
 
 
@@ -155,7 +136,7 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
             db.tbDangKyNgoaiKhoas.InsertOnSubmit(insert);
             db.SubmitChanges();
             int id = Convert.ToInt32(txtngoaiKhoa_id.Value);
-           Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "checkbutton(" + id +")", true);
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "checkbutton(" + id + ")", true);
             ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Đăng ký thành công! Vui lòng chờ xác nhận của nhà trường!','','success').then(function(){window.location.reload();})", true);
             //alert.alert_Success(Page, "Đăng ký thành công! Vui lòng chờ xác nhận của nhà trường", "");
             String message = "Bạn có thông tin đăng ký ngoại khóa mới từ phụ huynh bé" + checkUserId.hocsinh_name + ".  Xem chi tiết <a href='http://quantrimamnon.vietnhatschool.edu.vn/admin-danh-sach-dang-ky-chuong-trinh-ngoai-khoa'>tại đây.</a>";
@@ -208,7 +189,7 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
     protected void btnXem_ServerClick(object sender, EventArgs e)
 
     {
-        
+
     }
 
     protected void xoa_ServerClick(object sender, EventArgs e)
@@ -216,10 +197,19 @@ public partial class web_module_module_website_website_VietNhatKis_web_DangKyNgo
         tbDangKyNgoaiKhoa delete = (from nk in db.tbDangKyNgoaiKhoas
                                     where nk.ngoaikhoa_id == Convert.ToInt32(txtngoaiKhoa_id.Value)
                                     select nk).FirstOrDefault();
-        db.tbDangKyNgoaiKhoas.DeleteOnSubmit(delete);
-        db.SubmitChanges();
+        if (delete != null)
+        {
+            db.tbDangKyNgoaiKhoas.DeleteOnSubmit(delete);
+            db.SubmitChanges();
 
-        ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Hủy đăng ký thành công! Vui lòng chờ xác nhận của nhà trường!','','success').then(function(){parent.location.href='/website-dang-ki-ngoai-khoa';})", true);
+            ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Hủy đăng ký thành công! Vui lòng chờ xác nhận của nhà trường!','','success').then(function(){parent.location.href='/website-dang-ki-ngoai-khoa';})", true);
+        }
+        else
+        {
+            alert.alert_Error(Page, "Ba mẹ bé chưa đăng kí chương trình này!", " ");
+        }
+
 
     }
 }
+// 

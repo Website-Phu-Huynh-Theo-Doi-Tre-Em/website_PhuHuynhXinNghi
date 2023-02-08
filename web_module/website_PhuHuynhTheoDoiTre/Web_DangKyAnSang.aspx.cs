@@ -119,8 +119,8 @@ public partial class web_module_website_VietNhatKids_Web_DangKyAnSang : System.W
        
         db.tbDangKiAnhSangs.InsertOnSubmit(insert);
         db.SubmitChanges();
-        ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Đăng kí hàng thành công!','','success').then(function(){window.location.reload();parent.location.href='/website-dang-ki-an-sang';})", true);
-        //ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Đăng kí thành công! Vui lòng chờ GVCN xác nhận!','','success').function(){parent.location.href='/website-dang-ki-an-sang';window.location.reload();})", true);
+        //ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Đăng kí hàng thành công!','','success').then(function(){window.location.reload();parent.location.href='/website-dang-ki-an-sang';})", true);
+        ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Đăng kí thành công! Vui lòng chờ GVCN xác nhận!','','success').function(){parent.location.href='/website-dang-ki-an-sang';window.location.reload();})", true);
 
     }
     protected void btnHuyDangKy_ServerClick(object sender, EventArgs e)
@@ -153,7 +153,7 @@ public partial class web_module_website_VietNhatKids_Web_DangKyAnSang : System.W
         db.tbDangKiAnhSangs.DeleteOnSubmit(del);
 
         db.SubmitChanges();
-        ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Hủy thành công! Vui lòng chờ GVCN xác nhận!','','success').function(){window.location.reload();parent.location.href='/website-dang-ki-an-sang';})", true);
+        ScriptManager.RegisterClientScriptBlock(Page, this.GetType(), "Alert", "swal('Hủy đăng kí thành công! Vui lòng chờ GVCN xác nhận!','','success').function(){parent.location.href='/website-dang-ki-an-sang';window.location.reload();})", true);
         btnHuyDangKy.Visible = false;
         btnDangKy.Visible = true;
         string message = "Bạn có đăng ký hủy ăn sáng mới từ phụ huynh bé " + checkhocsinh.hocsinh_name + ". Xem chi tiết <a href='http://quantrimamnon.vietnhatschool.edu.vn/admin-danh-sach-huy-dang-ky-an-sang'>tại đây.</a>";

@@ -7,8 +7,9 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="/js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
-    <script src="../../admin_js/sweetalert.min.js"></script>
-    <link href="../../../admin_css/css_index/Loading.css" rel="stylesheet" />
+    <script src="/admin_js/sweetalert.min.js"></script>
+    <link href="/admin_css/css_index/Loading.css" rel="stylesheet" />
+    <script src="/admin_js/js_base/jquery-1.9.1.js"></script>
     <style>
         body {
             background-color: #e7e7e8;
@@ -243,7 +244,7 @@
         }
 
         .btn-canceldangki {
-            display: none;
+            /*display: none;*/
             width: 35%;
         }
     </style>
@@ -292,20 +293,23 @@
             document.getElementById("<%=txtngoaiKhoa_id.ClientID%>").value = dangoai_id;
             document.getElementById("<%=btnXem.ClientID%>").click();
         }
-        function checkbutton(id) {
-            if (document.getElementById("<%=txtngoaiKhoa_tinhtrang.ClientID%>").value == "dang ki") {
-
-                document.getElementById("btnLuu_" + id).style.display = 'none';
-                document.getElementById("btnHuy_" + id).style.display = 'block';
+        <%--var st = [];
+        window.onload = function () {
+            debugger
+            var id = document.getElementById("<%=txtngoaiKhoa_id.ClientID%>").value;
+            var st = id.split(",");
+            for (var i = 0; i < st.length; i++) {
+                document.getElementById("btnLuu_" + st[i]).style.display = none;
+                document.getElementById("btnHuy_" + st[i]).style.display = none;
             }
-        }
+        }--%>
     </script>
     <style>
-        .left-sec{
+        .left-sec {
             overflow: hidden;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
     </style>
 </asp:Content>
@@ -371,7 +375,7 @@
             </div>
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </asp:Content>
 
 
